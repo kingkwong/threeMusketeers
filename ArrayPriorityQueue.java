@@ -1,37 +1,32 @@
-//Team PortPriorityBusTerminal: Joelle L., Nikita B., Manahal T.
-//APCS2 pd1
-//HW32 -- Getting Past the Velvet Rope
-//2017-04-20
-
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue implements PriorityQueue{
+public class ArrayPriorityQueue<T> implements PriorityQueue<T>{
 
     //instance vars
-    private ArrayList<Integer> queue;
+    private ArrayList<T> queue;
     
     //constructors
     public ArrayPriorityQueue(){
-        queue = new ArrayList<Integer>();
+        queue = new ArrayList<T>();
     }
     
     //methods
     //removeMin returns the integer with highest priority(smallest integer) which should
     //always be at the end of the queue. 
-    public int removeMin(){
-        return (int)(queue.remove(queue.size()-1));
+    public T removeMin(){
+        return queue.remove(queue.size()-1);
     }
 
     //add insert int x based on its priority. x should go before ints with higher priority
     //and also ints of same priority(because of the LILO aspect of queues).
-    public void add( int x ){
+    public void add( T x ){
         int index = 0;
         if (isEmpty()){
-            queue.add(x);
+            queue.add(x); 
         }
-        else{
-            while ((index < queue.size()) && ((int)queue.get(index) >= x )){
-            index++;
+        else{ 
+            while ((index < queue.size()) && (((Comparable)x).compareTo(queue.get(index)) <= 0 )){
+		index++;
             }
             queue.add(index, x);
         }
@@ -43,8 +38,8 @@ public class ArrayPriorityQueue implements PriorityQueue{
     }
     //peekMin returns the int with highest priority by returning the value from the end
     //of the list
-    public int peekMin(){
-        return (int)queue.get(queue.size()-1);
+    public T peekMin(){
+        return (T)queue.get(queue.size()-1);
     }
     //toString method
     public String toString(){
@@ -56,10 +51,11 @@ public class ArrayPriorityQueue implements PriorityQueue{
         return retStr;
     }
 
+
     //main method
     public static void main (String[] args){
 
-        ArrayPriorityQueue nums = new ArrayPriorityQueue();
+        ArrayPriorityQueue<Integer> nums = new ArrayPriorityQueue<Integer>();
 
         System.out.println("Empty? before adding anything: " + nums.isEmpty());
     
