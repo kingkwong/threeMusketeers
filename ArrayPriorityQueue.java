@@ -53,7 +53,7 @@ public class ArrayPriorityQueue<T> implements PriorityQueue<T>{
 
 
     //main method
-    public static void main (String[] args){
+    /* public static void main (String[] args){
 
         ArrayPriorityQueue<Integer> nums = new ArrayPriorityQueue<Integer>();
 
@@ -94,6 +94,6 @@ public class ArrayPriorityQueue<T> implements PriorityQueue<T>{
         
         System.out.println("Dequeueing from empty queue should yield error...");
         System.out.println( nums.removeMin());
-    }
+	}*/
 }
 
