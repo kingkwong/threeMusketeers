@@ -4,7 +4,6 @@ public class Ticket implements Comparable<Ticket>{
     private String _description;
     private int _priority; //0 is most important
     private String _name;
-    private String _solution;
     public boolean _solved;
 
 
@@ -16,7 +15,6 @@ public class Ticket implements Comparable<Ticket>{
 	_priority = priority;
 	_description = description;
 	_solved = false;
-	_solution = "unknown";
     }
     
     /*--------------------------ACCESORS---------------------------*/
@@ -41,10 +39,6 @@ public class Ticket implements Comparable<Ticket>{
 
     public void setPriority(int newPriority){
 	_priority = newPriority;
-    }
-
-    public void setSolution(String solution){
-	_solution = solution;
     }
 
     public void setSolved(boolean solved){
