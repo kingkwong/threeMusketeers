@@ -14,7 +14,7 @@ public class ArrayPriorityQueue<T> implements PriorityQueue<T>{
     //removeMin returns the integer with highest priority(smallest integer) which should
     //always be at the end of the queue. 
     public T removeMin(){
-        return queue.remove(queue.size()-1);
+	return queue.remove(queue.size()-1);
     }
 
     //add insert int x based on its priority. x should go before ints with higher priority

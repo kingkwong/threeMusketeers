@@ -57,4 +57,10 @@ public class Ticket implements Comparable<Ticket>{
 	return _iD == other.getID();
     }
 
+    public String toString(){
+	String retStr = "";
+	retStr += _id + " " + name;
+	return retStr;
+    }
+
 }

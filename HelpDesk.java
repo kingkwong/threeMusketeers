@@ -38,6 +38,13 @@ public class HelpDesk{
 	}
     }
 
+    public void solveTicket(){
+	if (!(data.isEmpty())){
+	    Ticket solving = data.removeMin();
+	    //WORK OVER HERE
+	}
+    }
+	
 	    
     public String passwordReset(){
 	_solved = true;
@@ -57,7 +64,27 @@ public class HelpDesk{
 	_solved = true;
 	return "Take a deep breath. Everything is working. It's all okay. *gives hug*";
     }
-    
 
+    public String toString(){
+	return data.toString();
+    }
 
+    public static void main(String[] args){
+
+	HelpDesk helper = new HelpDesk();
+	helper.newTicket();
+	helper.newTicket();
+	helper.newTicket();
+	helper.newTicket();
+	helper.newTicket();
+	helper.newTicket();
+	System.out.println(helper);
+	
+	helper.solveTicket();
+	helper.solveTicket();
+	helper.solveTicket();
+	helper.solveTicket();
+	helper.solveTicket();
+	helper.solveTicket();
+    }
 }
