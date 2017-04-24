@@ -17,7 +17,7 @@ public class Ticket implements Comparable<Ticket>{
 	_solved = false;
     }
     
-    /*--------------------------ACCESORS---------------------------*/
+    /*--------------------------ACCESSORS---------------------------*/
     
     public int getPriority(){
 	return _priority;
@@ -59,7 +59,7 @@ public class Ticket implements Comparable<Ticket>{
 
     public String toString(){
 	String retStr = "";
-	retStr += _id + " " + name;
+	retStr += _iD + " " + _name;
 	return retStr;
     }
 

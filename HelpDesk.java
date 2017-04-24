@@ -4,11 +4,10 @@ public class HelpDesk{
 
     private ArrayPriorityQueue<Ticket> data;
     private int idCounter;
-    private static String[] services = {"Reinstall Operating System","Dispatch Tech",
-					"Password Reset","Moral Support and a Hug");
+    private static String[] services = {"Reinstall Operating System","Dispatch Tech","Password Reset","Moral Support and a Hug"};
 
     public HelpDesk(){
-	data = new ArrayPriorityQueue<Ticket>;
+	data = new ArrayPriorityQueue<Ticket>();
 	idCounter = 1;
     }
 
@@ -16,7 +15,7 @@ public class HelpDesk{
 	System.out.println("Welcome to the Help Desk! What is your name?");
 	String name = Keyboard.readString();
 
-	System.out.println("Hello there " + name "! " + "What can we help with you today?");
+	System.out.println("Hello there " + name + "! " + "What can we help with you today?");
 	for (int x = 0; x < services.length; x++){
 	    System.out.println( (x+1) + ": " + services[x]);
 	}
@@ -41,27 +40,38 @@ public class HelpDesk{
     public void solveTicket(){
 	if (!(data.isEmpty())){
 	    Ticket solving = data.removeMin();
-	    //WORK OVER HERE
+	    if (solving.getPriority() == 0){
+		System.out.println(reinstallOS());
+	    }
+	    else if (solving.getPriority() == 1){
+		System.out.println(dispatchTech());
+	    }
+	    else if (solving.getPriority() == 2){
+		passwordReset();
+	    }
+	    else{
+		System.out.println(moralSupport());
+	    }
+	    solving._solved = true;
 	}
     }
 	
 	    
-    public String passwordReset(){
-	_solved = true;
+    public static void passwordReset(){
+	System.out.println("Okay. We're going to reset your password. Please type your new password.");
+	String newPass = Keyboard.readString();
+	System.out.println("Okay " + newPass + " is your new password. Have a nice day.");
     }
 
-    public String dispatchTech(){
-	_solved = true; //not sure if this is valid here
+    public static String dispatchTech(){
 	return "Okay. You can return to your desk, and I'll send someone over to see if they can fix the problem";
     }
 
-    public String reinstallOS(){
-	_solved = true;
+    public static String reinstallOS(){
 	return "I reinstalled your operating system, so it should basically start over as a new machine now. Let me know if you have any other problems";
     }
 
-    public String moralSupport(){
-	_solved = true;
+    public static String moralSupport(){
 	return "Take a deep breath. Everything is working. It's all okay. *gives hug*";
     }
 
