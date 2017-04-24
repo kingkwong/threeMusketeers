@@ -11,6 +11,10 @@ public class HelpDesk{
 	idCounter = 1;
     }
 
+    public ArrayPriorityQueue<Ticket> getData(){
+	return data;
+    }
+    
     public void newTicket(){
 	System.out.println("Welcome to the Help Desk! What is your name?");
 	String name = Keyboard.readString();
@@ -89,12 +93,9 @@ public class HelpDesk{
 	helper.newTicket();
 	helper.newTicket();
 	System.out.println(helper);
-	
-	helper.solveTicket();
-	helper.solveTicket();
-	helper.solveTicket();
-	helper.solveTicket();
-	helper.solveTicket();
-	helper.solveTicket();
+	while (! helper.getData().isEmpty()){
+	    helper.solveTicket();
+	}
+
     }
 }
